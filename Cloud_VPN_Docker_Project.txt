@@ -1,0 +1,90 @@
+First we must create a Droplet in DigitalOcean.
+When creating your droplet, choose Ubuntu 20.04 and which ever specs you want.
+Select the data center you wish to use.
+
+Once we create the droplet, we will run our commands in the droplet console.
+To find the droplet console, look at the column on the left hand side and click on Droplets.
+Select the droplet your wish to use then click on the Access page.
+Once inside the Access page, there will be a icon that says "Launch Droplet Console"
+Now you will be in the location where you can run the following commands.
+
+Next we must install docker.
+First we need to install the tools for the project:
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+
+Then we must add the docker key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Next we must add the docker repository:
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+Now we must switch it to the correct repository:
+sudo apt install docker-ce -y
+
+Now just install Docker-Compose:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+Finally set the permission for docker-compose:
+sudo chmod +x /usr/local/bin/docker-compose
+
+Now we will setup wireguard. 
+We will run all of the commands in the droplet console.
+
+First we must a directory for wireguard and config.
+mkdir -p ~/wireguard/
+mkdir -p ~/wireguard/config/
+
+Next we must create the docker-compose.yml file and edit it.
+I used vim, but feel free to use your text editor of choice.
+vim ~/wireguard/docker-compose.yml
+
+Now that you are editing the docker-compose.yml file, you must copy and paste the content below:
+
+version: '3.8'
+services:
+  wireguard:
+    container_name: wireguard
+    image: linuxserver/wireguard
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - SERVERURL=x.x.x.x
+      - SERVERPORT=51820
+      - PEERS=Phone
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.0.0.0
+    ports:
+      - 51820:51820/udp
+    volumes:
+      - type: bind
+        source: ./config/
+        target: /config/
+      - type: bind
+        source: /lib/modules
+        target: /lib/modules
+    restart: always
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+
+Now go and edit the following:
+Set the timezone (TZ) to your timezone.
+Insert the IP address for your server on the SERVERURL line.
+Also, for myself, I only have my Phone as a peer but if you desire more then add them on the PEERS line.
+
+Next you will want to navagiate to your wireguard directory:
+cd ~/wireguard/
+
+Then you will start wireguard:
+docker-compose up -d
+
+If you want to connect your phone to wireguard then download the wireguard app from the IOS or Playstore.
+Once installed run this command:
+docker-compose logs -f wireguard
+
+A QR code will be generated that you will be able to scan. Once scanned, you will be able to use the VPN.
+
+
