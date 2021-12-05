@@ -1,6 +1,6 @@
 ## Instructions Below
 
-Fist we must create a Droplet in DigitalOcean.
+Fist we must create a Droplet in [DigitalOcean](https://www.digitalocean.com/)
 When creating your droplet, choose Ubuntu 20.04 and whatever specs you want.
 Select the data ceneter you wish to use.
 
