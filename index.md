@@ -119,7 +119,7 @@ A QR code will be generated that you will be able to scan. Once scanned, you wil
 
 ### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Will2909/CS_VPN_Project/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
 
 ### Support or Contact
 
