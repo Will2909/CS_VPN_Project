@@ -114,7 +114,12 @@ docker-compose up -d
 ```
 A QR code will be generated that you will be able to scan. Once scanned, you will be able to use the VPN from your phone.
 
-![VPN Test](/CS_VPN_Project/docs/assets/Screenshot_20211204-180015_Chrome.jpg)
+
+### VPN Test
+![VPN Test Off](/CS_VPN_Project/docs/assets/Screenshot_20211204-161655_Chrome.jpg)
+
+
+![VPN Test On](/CS_VPN_Project/docs/assets/Screenshot_20211204-180015_Chrome.jpg)
 
 
 ### Jekyll Themes
