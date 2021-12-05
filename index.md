@@ -1,29 +1,22 @@
-## Welcome to GitHub Pages
+## Instructions Below
 
-You can use the [editor on GitHub](https://github.com/Will2909/CS_VPN_Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Fist we must create a Droplet in DigitalOcean.
+When creating your droplet, choose Ubuntu 20.04 and whatever specs you want.
+Select the data ceneter you wish to use.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Once we creat the droplet, we will run our commands in the droplet console.
+To find the droplet console, look at the column on the left hand side and click on Droplets.
+Select the droplet you wish to use then click on the Acess page.
+Once inside the Access page, there will be an icon that says "Launch Droplet Console"
+Now you will be in the locaiton where you can run the following commands.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Install Docker
+
+First we need to install the tools for the project:
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 ```
 
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
