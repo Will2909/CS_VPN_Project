@@ -120,6 +120,3 @@ A QR code will be generated that you will be able to scan. Once scanned, you wil
 
 
 ![VPN Test On](/CS_VPN_Project/docs/assets/Screenshot_20211204-180015_Chrome.jpg)
-
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
